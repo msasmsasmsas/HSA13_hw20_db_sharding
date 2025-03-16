@@ -8,7 +8,7 @@ docker compose -f docker-compose.noshards.yml up -d
 Get-Content scripts/noshards/init.sql | docker exec -i  postgresql-b psql -U postgres -d books_db
 #nix
 PGPASSWORD=postgres docker exec -i postgresql-b psql -U postgres -d books_db < scripts/noshards/init.sql
-docker exec -it app python write_data.py 100000 --batch-size 10000
+docker exec -it app python insert_db.py 100000 --batch-size 10000
 ```
 
 ### Result without sharding
@@ -33,7 +33,7 @@ docker compose -f docker-compose.fdw.yml up -d
 PGPASSWORD=postgres docker exec -i postgresql-b1 psql -U postgres -d books_db < scripts/fdw/shard-1.sql
 PGPASSWORD=postgres docker exec -i postgresql-b2 psql -U postgres -d books_db < scripts/fdw/shard-2.sql
 PGPASSWORD=postgres docker exec -i postgresql-b psql -U postgres -d books_db < scripts/fdw/main.sql
-docker exec -it app python write_data.py 100000 --batch-size 10000
+docker exec -it app python insert_db.py 100000 --batch-size 10000
 ```
 
 ### Result with FDW sharding
@@ -54,7 +54,7 @@ docker compose -f docker-compose.fdw.yml down
 ```
 docker compose -f docker-compose.citus.yml up -d
 PGPASSWORD=postgres docker exec -i postgresql-b psql -U postgres -d books_db < scripts/citus/main.sql
-docker exec -it app python write_data.py 100000 --batch-size 10000
+docker exec -it app python insert_db.py 100000 --batch-size 10000
 ```
 
 ### Result with Citus sharding
