@@ -4,7 +4,10 @@
 
 ```
 docker compose -f docker-compose.noshards.yml up -d
-PGPASSWORD=postgres docker exec -i postgresql-b psql -U postgres -d books_db < scripts/no-shards/init.sql
+#win
+Get-Content scripts/noshards/init.sql | docker exec -i  postgresql-b psql -U postgres -d books_db
+#nix
+PGPASSWORD=postgres docker exec -i postgresql-b psql -U postgres -d books_db < scripts/noshards/init.sql
 docker exec -it app python write_data.py 100000 --batch-size 10000
 ```
 
@@ -13,13 +16,15 @@ docker exec -it app python write_data.py 100000 --batch-size 10000
 ```
 Total books inserted: 100000
 Batch size: 10000
-Total time: 22.76 seconds
-Average rate: 4394.32 books per second
+Total time: 18.99 seconds
+Average rate: 5267.22 books per second
 ```
 
 ### Stop the noshards cluster
 
+```
 docker compose -f docker-compose.noshards.yml down
+```
 
 ## FDW (Foreign Data Wrapper) approach
 
