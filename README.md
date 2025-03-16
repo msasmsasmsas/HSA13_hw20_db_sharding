@@ -10,10 +10,12 @@ docker exec -it app python write_data.py 100000 --batch-size 10000
 
 ### Result without sharding
 
+```
 Total books inserted: 100000
 Batch size: 10000
 Total time: 22.76 seconds
 Average rate: 4394.32 books per second
+```
 
 ### Stop the noshards cluster
 
@@ -31,10 +33,12 @@ docker exec -it app python write_data.py 100000 --batch-size 10000
 
 ### Result with FDW sharding
 
+```
 Total books inserted: 100000
 Batch size: 10000
 Total time: 34.50 seconds
 Average rate: 2898.71 books per second
+```
 
 ### Stop the fdw cluster
 
@@ -49,11 +53,12 @@ docker exec -it app python write_data.py 100000 --batch-size 10000
 ```
 
 ### Result with Citus sharding
-
+```
 Total books inserted: 100000
 Batch size: 10000
 Total time: 26.91 seconds
 Average rate: 3716.71 books per second
+```
 
 ### Stop the citus cluster
 
