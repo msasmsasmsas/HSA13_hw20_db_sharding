@@ -4,13 +4,13 @@ docker compose down
 docker-compose up -d
 
 
-git clone -b main https://github.com/msasmsasmsas/HSA13_hw19_Database_Replication .
+git clone -b main https://github.com/msasmsasmsas/HSA13_hw20_db_sharding .
 
 
 git init
-git remote add origin https://github.com/msasmsasmsas/HSA13_hw19_Database_Replication
-git config --global --add safe.directory E:/HSA13/HSA13_hw19_Database_Replication
-git remote add origin https://github.com/msasmsasmsas/HSA13_hw19_Database_Replication
+git remote add origin https://github.com/msasmsasmsas/HSA13_hw20_db_sharding
+git config --global --add safe.directory E:/HSA13/HSA13_hw20_db_sharding
+git remote add origin https://github.com/msasmsasmsas/HSA13_hw20_db_sharding
 
 git fetch origin
 git checkout main
