@@ -46,8 +46,8 @@ docker exec -it app python insert_db.py 100000 --batch-size 10000
 ```
 Total books inserted: 100000
 Batch size: 10000
-Total time: 19.32 seconds
-Average rate: 5177.31 books per second
+Total time: 18.07 seconds
+Average rate: 5533.08 books per second
 ```
 
 ### Stop the fdw cluster
@@ -68,11 +68,12 @@ docker exec -it app python insert_db.py 100000 --batch-size 10000
 ```
 
 ### Result with Citus sharding
+
 ```
 Total books inserted: 100000
 Batch size: 10000
-Total time: 26.91 seconds
-Average rate: 3716.71 books per second
+Total time: 21.37 seconds
+Average rate: 4679.90 books per second
 ```
 
 ### Stop the citus cluster
